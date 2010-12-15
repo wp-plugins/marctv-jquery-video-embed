@@ -3,7 +3,7 @@ Contributors: MarcDK
 Tags: marctv, jquery, video, youtube, embed, ipad, iphone, vimeo, google video
 Requires at least: 3.0
 Tested up to: 3.0
-Stable tag: 1.6.2
+Stable tag: 1.6.3
 
 == Description ==
 
@@ -26,6 +26,8 @@ e.g.: `<a class="flashvideo" href="http://www.youtube.com/watch?v=TJHX52TXgm4">M
 
 = Advanced usage =
 
+= player size =
+
 You can add my predefined classes like to use predefined dimensions for the size of the player:
 
 * big
@@ -36,7 +38,10 @@ You can add my predefined classes like to use predefined dimensions for the size
 `<a class="flashvideo soundonly" href="http://www.youtube.com/watch?v=TJHX52TXgm4">My Title</a>`
 
 Look all of them up in jquery.marctv-video.css and feel free to overwrite this rules with your own rules in your template's style.css.
-It is also possible to link to a specific start time for youtube videos. This script converts links like <a class="flashvideo" href="http://www.youtube.com/watch?v=TJHX52TXgm4&t=1m20s">My Title</a> to the appropriate time format.
+
+= specify start time =
+
+It is also possible to link to a specific start time for youtube videos. This script converts links like `<a class="flashvideo" href="http://www.youtube.com/watch?v=TJHX52TXgm4&t=1m20s">My Title</a> to the appropriate time format.`
 
 == Changelog ==
 
@@ -63,3 +68,7 @@ Forgot to add a bunch of files.
 = 1.6.2 =
 
 Added .wp-caption class to style video embed like images.
+
+= 1.6.3 =
+
+Added start time feature 
