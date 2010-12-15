@@ -1,17 +1,17 @@
 (function($) {
   /*
-* Marc Tönsing 20010
+* Marc Tönsing 2010
 *
 * depends on toolbox.flashembed 
 *
-* Version 1.1
+* Version 1.7.1
 */
-  $.fn.flashvideo = function (options) {
+  $.fn.embedvideo = function (options) {
     options = $.extend({
       debug		: "false",
       width               : "620",
-      height              : "385",
-      description_html    : '<div class="wp-caption-text"></div>',
+      height              : "370",
+      description_html    : '<p class="wp-caption-text"></p>',
       mediatypes	: {
         youtube		: {
           linksyntax : 'youtube.com/watch?',
@@ -50,7 +50,7 @@
       var caption_markup	= $(options.description_html).html('<a href="' + thisobj.attr('href') + '">' + title + '</a>');
            
       flashobj = $(flashobj).addClass(thisobj.attr('class'));
-      thisobj.wrap('<div class="flashembed" />').after(caption_markup).after(flashobj).remove();
+      thisobj.wrap('<div class="flashembed wp-caption" />').after(caption_markup).after(flashobj).remove();
            
     };
 
@@ -136,7 +136,7 @@
           buildPlayer($(this),buildSWFURL(mediatype,mediaID,offset),mediatype,mediaID);
         }
       }else if(mediatype=='youtube' && isApple()) {
-        flashobj=$('<object width="' + options.width + '" height="' + options.height +'"><param name="movie" value="http://www.youtube.com/v/' + mediaID + '&hl=de_DE&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/' + mediaID + '&hl=de_DE&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="' + options.width + '" height="' + options.height + '"></embed></object>');
+        flashobj=$('<object width="' + options.width + '" height="' + options.height +'"><param name="movie" value="http://www.youtube.com/v/' + mediaID + '"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/' + mediaID + '&hl=de_DE&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="' + options.width + '" height="' + options.height + '"></embed></object>');
         $(this).prepend(flashobj);
       }else{
         $(this).addClass('videoicon');
