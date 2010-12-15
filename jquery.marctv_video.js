@@ -1,17 +1,17 @@
 (function($) {
   /*
-* Marc Tönsing 20010
+* Marc Tönsing 2010
 *
 * depends on toolbox.flashembed 
 *
-* Version 1.1
+* Version 1.4
 */
   $.fn.flashvideo = function (options) {
     options = $.extend({
       debug		: "false",
       width               : "620",
       height              : "385",
-      description_html    : '<div class="wp-caption-text"></div>',
+      description_html    : '<p class="wp-caption-text"></p>',
       mediatypes	: {
         youtube		: {
           linksyntax : 'youtube.com/watch?',
@@ -50,7 +50,7 @@
       var caption_markup	= $(options.description_html).html('<a href="' + thisobj.attr('href') + '">' + title + '</a>');
            
       flashobj = $(flashobj).addClass(thisobj.attr('class'));
-      thisobj.wrap('<div class="flashembed" />').after(caption_markup).after(flashobj).remove();
+      thisobj.wrap('<div class="flashembed wp-caption" />').after(caption_markup).after(flashobj).remove();
            
     };
 
