@@ -3,7 +3,7 @@ Contributors: MarcDK
 Tags: marctv, jquery, video, youtube, embed, ipad, iphone, vimeo, google video
 Requires at least: 3.0
 Tested up to: 3.0
-Stable tag: 1.1
+Stable tag: 1.2
 
 == Description ==
 
@@ -36,3 +36,7 @@ First version.
 = 1.1. =
 
 Fixed folder names
+
+= 1.2 =
+
+Fixed filenames

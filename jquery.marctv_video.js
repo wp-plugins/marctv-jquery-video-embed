@@ -1,10 +1,10 @@
 (function($) {
   /*
-* Marc Tönsing 20010
+* Marc Tönsing 2010
 *
 * depends on toolbox.flashembed 
 *
-* Version 1.1
+* Version 1.2
 */
   $.fn.flashvideo = function (options) {
     options = $.extend({
