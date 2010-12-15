@@ -4,6 +4,7 @@
 *
 * depends on toolbox.flashembed 
 *
+* Version 1.1
 */
   $.fn.flashvideo = function (options) {
     options = $.extend({
@@ -35,7 +36,6 @@
     }, options);
 
     var buildPlayer = function (thisobj,swf_url,mediatype,mediaID){
-
       var flashobj = flashembed.getHTML({
         allowfullScreen: true,
         id: 'vid_' + mediaID,

@@ -3,11 +3,11 @@ Contributors: MarcDK
 Tags: marctv, jquery, video, youtube, embed, ipad, iphone, vimeo, google video
 Requires at least: 3.0
 Tested up to: 3.0
-Stable tag: 1.0
+Stable tag: 1.1
 
 == Description ==
 
- Embed youtube, vimeo and google videos by just adding a css class to a link which points to the url of a video page. Supports iPad/iPhone-safe embedding for YouTube. 
+Embed youtube, vimeo and google videos by just adding a css class to a link which points to the url of a video page. Supports iPad/iPhone-safe embedding for YouTube. 
 
 Syntax: `<a class="flashvideo" href="http://www.youtube.com/watch?v=TJHX52TXgm4">My Title</a>` 
 
@@ -32,3 +32,7 @@ It is also possible to link to a specific start time for youtube videos. This sc
 = 1.0 =
 
 First version.
+
+= 1.1. =
+
+Fixed folder names
