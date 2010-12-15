@@ -4,7 +4,7 @@
 *
 * depends on toolbox.flashembed 
 *
-* Version 1.2
+* Version 1.3
 */
   $.fn.flashvideo = function (options) {
     options = $.extend({
