@@ -3,7 +3,7 @@ Contributors: MarcDK
 Tags: marctv, jquery, video, youtube, embed, ipad, iphone, vimeo, google video
 Requires at least: 3.0
 Tested up to: 3.0
-Stable tag: 1.6.1
+Stable tag: 1.6.2
 
 == Description ==
 
@@ -59,3 +59,7 @@ New description and more examples.
 = 1.6 =
 
 Forgot to add a bunch of files.
+
+= 1.6.2 =
+
+Added .wp-caption class to style video embed like images.
