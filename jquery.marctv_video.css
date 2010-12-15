@@ -1,9 +1,9 @@
-body .videoicon, a.flashvideo {
+body .videoicon, a.embedvideo {
     background: url(youtube.png) no-repeat;
     padding-left: 20px;
 }
 
-.js a.flashvideo{
+.js a.embedvideo{
     background: none;
     padding-left: 0;
 }

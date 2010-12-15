@@ -6,7 +6,7 @@
 *
 * Version 1.4
 */
-  $.fn.flashvideo = function (options) {
+  $.fn.embedvideo = function (options) {
     options = $.extend({
       debug		: "false",
       width               : "620",
