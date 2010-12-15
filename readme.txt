@@ -3,7 +3,7 @@ Contributors: MarcDK
 Tags: marctv, jquery, video, youtube, embed, ipad, iphone, vimeo, google video
 Requires at least: 3.0
 Tested up to: 3.0
-Stable tag: 1.3
+Stable tag: 1.4
 
 == Description ==
 
@@ -11,7 +11,7 @@ Embed youtube, vimeo and google videos by just adding a css class to a link whic
 
 Syntax: <a class="flashvideo" href="http://www.youtube.com/watch?v=TJHX52TXgm4">My Title</a>
 
-Degrades gracefully. The biggest advantages of this plugin is that it does not alter your original markup in any way. If you (or youtube) decides that flash is not the best way to embed video you won't be stuck with embed codes in your article. I will update this plugin to keep track with this development. And if you decide to use another plugin because this plugin does not suit your requirements then you can still switch because you did just add classes to html tags. So if everything breaks you still have working links to video ressources in your content.
+Degrades gracefully. The biggest advantage of this plugin is that it does not alter your original markup in any way. If you (or youtube) decides that flash is not the best way to embed video you won't be stuck with embed codes in your article. I will update this plugin to keep track with this development. And if you decide to use another plugin because this plugin does not suit your requirements then you can still switch because you did just add classes to html tags. So if everything breaks you still have working links to video ressources in your content.
 
 Feel free to contact me if you have any questions. Please use the wordpress forums and name a tag of your post after the plugin's name. Thank you.
 
@@ -51,3 +51,7 @@ Fixed folder names
 = 1.2 =
 
 Fixed filenames
+
+= 1.4 =
+
+New description and more examples.
