@@ -9,7 +9,7 @@ body .videoicon, a.embedvideo {
 }
 
 .flashembed .big {
-    height:564px;
+    height:570px;
     margin-left:-170px;
     width:960px;
 }
@@ -21,10 +21,10 @@ body .videoicon, a.embedvideo {
 
 .flashembed .wide {
     width: 620px;
-    height: 370px;
+    height: 378px;
 }
 
-flashembed .soundonly {
+.flashembed .soundonly {
     width: 620px;
     height: 25px;
 }

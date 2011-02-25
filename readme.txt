@@ -1,9 +1,9 @@
 === MarcTV jQuery Video Embed ===
-Contributors: MarcDK
+Contributors: marcdk
 Tags: marctv, jquery, video, youtube, embed, ipad, iphone, vimeo, google video
 Requires at least: 3.0
 Tested up to: 3.0
-Stable tag: 1.7.1
+Stable tag: 1.8
 
 == Description ==
 
@@ -79,3 +79,7 @@ Added start time feature
 = 1.7 =
 
 Changed class name to "embedvideo".
+
+= 1.8 =
+
+Added new iframe embedcode for YouTube Videos. 
