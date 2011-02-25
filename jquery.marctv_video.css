@@ -1,15 +1,15 @@
-body .videoicon, a.flashvideo {
+body .videoicon, a.embedvideo {
     background: url(youtube.png) no-repeat;
     padding-left: 20px;
 }
 
-.js a.flashvideo{
+.js a.embedvideo{
     background: none;
     padding-left: 0;
 }
 
 .flashembed .big {
-    height:564px;
+    height:570px;
     margin-left:-170px;
     width:960px;
 }
@@ -21,10 +21,10 @@ body .videoicon, a.flashvideo {
 
 .flashembed .wide {
     width: 620px;
-    height: 380px;
+    height: 378px;
 }
 
-flashembed .soundonly {
+.flashembed .soundonly {
     width: 620px;
     height: 25px;
 }

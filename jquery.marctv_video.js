@@ -1,17 +1,17 @@
 (function($) {
   /*
-* Marc Tönsing 20010
+* Marc Tönsing 2011
 *
 * depends on toolbox.flashembed 
 *
-* Version 1.1
+* Version 1.8.1
 */
-  $.fn.flashvideo = function (options) {
+  $.fn.embedvideo = function (options) {
     options = $.extend({
       debug		: "false",
       width               : "620",
-      height              : "385",
-      description_html    : '<div class="wp-caption-text"></div>',
+      height              : "378",
+      description_html    : '<p class="wp-caption-text"></p>',
       mediatypes	: {
         youtube		: {
           linksyntax : 'youtube.com/watch?',
@@ -28,34 +28,44 @@
         },
         gvid    : {
           linksyntax : 'video.google',
-          idregex :  new RegExp(/.*docid=([\d-]+)(.*?)/i),
+          idregex :  new RegExp(/.*docid=([\d\-]+)(.*?)/i),
           urlpostfix : '',
           baseurl : 'http://video.google.com/googleplayer.swf?docId='
         }
-      }
+      },
+      html5 : true
     }, options);
 
-    var buildPlayer = function (thisobj,swf_url,mediatype,mediaID){
-      var flashobj = flashembed.getHTML({
-        allowfullScreen: true,
-        id: 'vid_' + mediaID,
-        src: swf_url,
-        height: options.height,
-        width: options.width
-      }, {
-        allowFullScreen: true
-      });
+    var buildPlayer = function (thisobj,swf_url,mediatype,mediaID,time){
+      var vidobj = "";
+      if(mediatype === 'youtube'){
+        var offset = '';
+        if(time){
+          offset = '&start=' + time;
+        }
+        vidobj = '<iframe title="YouTube video player" width="' + options.width + '" height="' + options.height + '" src="http://www.youtube.com/embed/' + mediaID + '?rel=0&showinfo=0' + offset + '" frameborder="0" allowfullscreen></iframe>';
+      }else{
+        vidobj = flashembed.getHTML({
+          allowfullScreen: true,
+          id: 'vid_' + mediaID,
+          src: swf_url,
+          height: options.height,
+          width: options.width
+        }, {
+          allowFullScreen: true
+        });
+      }
 
       var title = thisobj.html();
       var caption_markup	= $(options.description_html).html('<a href="' + thisobj.attr('href') + '">' + title + '</a>');
-           
-      flashobj = $(flashobj).addClass(thisobj.attr('class'));
-      thisobj.wrap('<div class="flashembed" />').after(caption_markup).after(flashobj).remove();
+
+      var vidmarkup = $(vidobj).addClass(thisobj.attr('class'));
+      thisobj.wrap('<div class="flashembed wp-caption" />').after(caption_markup).after(vidmarkup).remove();
            
     };
 
     var getQuerystring = function (key, url){
-      key = key.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+      key = key.replace(/[\[]/,"\\[").replace(/[\]]/,"\\]");
       var regex = new RegExp("[\\?&]"+key+"=([^&#]*)");
       var qs = regex.exec(url);
       if(qs === null){
@@ -81,27 +91,12 @@
       }
     };
 
-    var isApple = function() {
-      var agent = navigator.userAgent.toLowerCase();
-      if(agent.match(/iPhone/i)=="iphone" || agent.match(/iPad/i)=="ipad"){
-        return true;
-      }
-      return false;
-
-    };
-
-    var buildSWFURL = function (mediatype,mediaID,time){
-      var timeparam = '';
-     
-      if(time){
-        timeparam = '&start=' + time;
-      }
-
+    
+    var buildSWFURL = function (mediatype,mediaID){
       var swf_url =
       options.mediatypes[mediatype].baseurl +
       mediaID +
-      options.mediatypes[mediatype].urlpostfix +
-      timeparam;
+      options.mediatypes[mediatype].urlpostfix;
       return swf_url;
     };
 
@@ -122,26 +117,17 @@
 
     return this.each(function () {
       var link = $(this).attr('href');
-
-      var mediatype = '';
-      mediatype = getMediatyp(link);
-
+      var mediatype = getMediatyp(link);
       var mediaID = getMediaID(link ,mediatype);
+      var offset = getSeconds(link);
 
-      var offset = '';
-      offset = getSeconds(link);
-
-      if(flashembed.isSupported([9, 0])){
-        if(mediatype){
-          buildPlayer($(this),buildSWFURL(mediatype,mediaID,offset),mediatype,mediaID);
-        }
-      }else if(mediatype=='youtube' && isApple()) {
-        flashobj=$('<object width="' + options.width + '" height="' + options.height +'"><param name="movie" value="http://www.youtube.com/v/' + mediaID + '&hl=de_DE&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/' + mediaID + '&hl=de_DE&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="' + options.width + '" height="' + options.height + '"></embed></object>');
-        $(this).prepend(flashobj);
+      if(mediatype === "youtube"){
+        buildPlayer($(this),buildSWFURL(mediatype,mediaID),mediatype,mediaID,offset);
+      }else if(flashembed.isSupported([9, 0])){
+        buildPlayer($(this),buildSWFURL(mediatype,mediaID),mediatype,mediaID,offset);
       }else{
         $(this).addClass('videoicon');
       }
-
     });
   };
-})(jQuery);
+}(jQuery));
