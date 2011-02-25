@@ -12,7 +12,7 @@
 if (!is_admin()) {
   wp_enqueue_style(
           "jquery.marctv_video", WP_PLUGIN_URL . "/marctv-jquery-video-embed/jquery.marctv_video.css",
-          false, "1.6.4");
+          false, "1.8");
 
   wp_enqueue_script(
           "toolbox.flashembed", WP_PLUGIN_URL . "/marctv-jquery-video-embed/toolbox.flashembed.min.js",
@@ -20,10 +20,10 @@ if (!is_admin()) {
 
   wp_enqueue_script(
           "jquery.marctv_video", WP_PLUGIN_URL . "/marctv-jquery-video-embed/jquery.marctv_video.js",
-          array("jquery", "toolbox.flashembed"), "1.6.4", 0);
+          array("jquery", "toolbox.flashembed"), "1.8", 0);
 
   wp_enqueue_script(
           "jquery.marctv_videosetup", WP_PLUGIN_URL . "/marctv-jquery-video-embed/jquery.marctv_video_setup.js",
-          array("jquery", "jquery.marctv_video", "toolbox.flashembed"), "1.6.4", 1);
+          array("jquery", "jquery.marctv_video", "toolbox.flashembed"), "1.8", 1);
 }
 ?>

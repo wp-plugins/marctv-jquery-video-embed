@@ -1,10 +1,10 @@
 (function($) {
   /*
-* Marc Tönsing 2010
+* Marc Tönsing 2011
 *
 * depends on toolbox.flashembed 
 *
-* Version 1.7.1
+* Version 1.8
 */
   $.fn.embedvideo = function (options) {
     options = $.extend({
