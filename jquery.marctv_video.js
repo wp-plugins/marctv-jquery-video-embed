@@ -4,7 +4,7 @@
 *
 * depends on toolbox.flashembed 
 *
-* Version 1.8
+* Version 1.8.1
 */
   $.fn.embedvideo = function (options) {
     options = $.extend({
@@ -28,7 +28,7 @@
         },
         gvid    : {
           linksyntax : 'video.google',
-          idregex :  new RegExp(/.*docid=([\d-]+)(.*?)/i),
+          idregex :  new RegExp(/.*docid=([\d\-]+)(.*?)/i),
           urlpostfix : '',
           baseurl : 'http://video.google.com/googleplayer.swf?docId='
         }
@@ -37,14 +37,15 @@
     }, options);
 
     var buildPlayer = function (thisobj,swf_url,mediatype,mediaID,time){
-      if(mediatype == 'youtube'){
+      var vidobj = "";
+      if(mediatype === 'youtube'){
         var offset = '';
         if(time){
           offset = '&start=' + time;
         }
-        var vidobj = '<iframe title="YouTube video player" width="' + options.width + '" height="' + options.height + '" src="http://www.youtube.com/embed/' + mediaID + '?rel=0&showinfo=0' + offset + '" frameborder="0" allowfullscreen></iframe>';
+        vidobj = '<iframe title="YouTube video player" width="' + options.width + '" height="' + options.height + '" src="http://www.youtube.com/embed/' + mediaID + '?rel=0&showinfo=0' + offset + '" frameborder="0" allowfullscreen></iframe>';
       }else{
-        var vidobj = flashembed.getHTML({
+        vidobj = flashembed.getHTML({
           allowfullScreen: true,
           id: 'vid_' + mediaID,
           src: swf_url,
@@ -53,7 +54,6 @@
         }, {
           allowFullScreen: true
         });
-
       }
 
       var title = thisobj.html();
@@ -65,7 +65,7 @@
     };
 
     var getQuerystring = function (key, url){
-      key = key.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+      key = key.replace(/[\[]/,"\\[").replace(/[\]]/,"\\]");
       var regex = new RegExp("[\\?&]"+key+"=([^&#]*)");
       var qs = regex.exec(url);
       if(qs === null){
@@ -92,16 +92,11 @@
     };
 
     
-    var buildSWFURL = function (mediatype,mediaID,time){
-      var timeparam = '';
-      if(time){
-        timeparam = '&start=' + time;
-      }
+    var buildSWFURL = function (mediatype,mediaID){
       var swf_url =
       options.mediatypes[mediatype].baseurl +
       mediaID +
-      options.mediatypes[mediatype].urlpostfix +
-      timeparam;
+      options.mediatypes[mediatype].urlpostfix;
       return swf_url;
     };
 
@@ -126,13 +121,13 @@
       var mediaID = getMediaID(link ,mediatype);
       var offset = getSeconds(link);
 
-      if(mediatype == "youtube"){
-             buildPlayer($(this),buildSWFURL(mediatype,mediaID,offset),mediatype,mediaID,offset);
+      if(mediatype === "youtube"){
+        buildPlayer($(this),buildSWFURL(mediatype,mediaID),mediatype,mediaID,offset);
       }else if(flashembed.isSupported([9, 0])){
-           buildPlayer($(this),buildSWFURL(mediatype,mediaID,offset),mediatype,mediaID,offset);
+        buildPlayer($(this),buildSWFURL(mediatype,mediaID),mediatype,mediaID,offset);
       }else{
-         $(this).addClass('videoicon');
+        $(this).addClass('videoicon');
       }
     });
   };
-})(jQuery);
+}(jQuery));
