@@ -4,7 +4,7 @@
 *
 * depends on toolbox.flashembed 
 *
-* Version 1.8.1
+* Version 2.0
 */
   $.fn.embedvideo = function (options) {
     options = $.extend({
@@ -12,6 +12,9 @@
       width               : "620",
       height              : "378",
       description_html    : '<p class="wp-caption-text"></p>',
+      forcehd             : false,
+      autoplay            : false,
+      showinfo            : false,
       mediatypes	: {
         youtube		: {
           linksyntax : 'youtube.com/watch?',
@@ -36,14 +39,27 @@
       html5 : true
     }, options);
 
-    var buildPlayer = function (thisobj,swf_url,mediatype,mediaID,time){
+    var buildPlayer = function (thisobj, swf_url, mediatype, mediaID, time){
       var vidobj = "";
       if(mediatype === 'youtube'){
         var offset = '';
         if(time){
           offset = '&start=' + time;
         }
-        vidobj = '<iframe title="YouTube video player" width="' + options.width + '" height="' + options.height + '" src="http://www.youtube.com/embed/' + mediaID + '?rel=0&showinfo=0' + offset + '" frameborder="0" allowfullscreen></iframe>';
+        var autoplay ="";
+        if(options.autoplay){
+          autoplay = '&autoplay=1';
+        }
+        var hd = "";
+        if(options.forcehd){
+          hd = '&hd=1';
+        }
+        var showinfo = "&showinfo=0";
+        if(options.showinfo){
+          hd = '&showinfo=1';
+        }
+
+        vidobj = '<iframe title="YouTube video player" width="' + options.width + '" height="' + options.height + '" src="http://www.youtube.com/embed/' + mediaID + '?rel=0' + showinfo + offset + hd + autoplay + '" frameborder="0" scrolling="no" allowfullscreen></iframe>';
       }else{
         vidobj = flashembed.getHTML({
           allowfullScreen: true,
@@ -90,7 +106,20 @@
         return false;
       }
     };
-
+    
+    var getOptions = function (myClasses){
+      for (var i = 0; i < myClasses.length; i++ ) {
+        if(myClasses[i] == "forcehd"){
+          options.forcehd = true;
+        }
+        if(myClasses[i] == "autoplay"){
+          options.autoplay = true;
+        }
+        if(myClasses[i] == "showinfo"){
+          options.showinfo = true;
+        }
+      }
+    }
     
     var buildSWFURL = function (mediatype,mediaID){
       var swf_url =
@@ -116,11 +145,13 @@
     };
 
     return this.each(function () {
+      getOptions($(this).attr('class').split(' '));
+      
       var link = $(this).attr('href');
       var mediatype = getMediatyp(link);
       var mediaID = getMediaID(link ,mediatype);
       var offset = getSeconds(link);
-
+      
       if(mediatype === "youtube"){
         buildPlayer($(this),buildSWFURL(mediatype,mediaID),mediatype,mediaID,offset);
       }else if(flashembed.isSupported([9, 0])){
