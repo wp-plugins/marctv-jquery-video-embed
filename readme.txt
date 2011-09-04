@@ -2,8 +2,8 @@
 Contributors: MarcDK
 Tags: marctv, jquery, video, youtube, embed, ipad, iphone, vimeo, google video
 Requires at least: 3.0
-Tested up to: 3.0
-Stable tag: 1.8.1
+Tested up to: 3.2
+Stable tag: 2.1
 
 == Description ==
 
@@ -46,6 +46,18 @@ It is also possible to link to a specific start time for youtube videos. This sc
 
 to the appropriate time format and starts the video at that position.
 
+= autoplay, forcehd and showinfo =
+
+Version 2.0 introduces three new parameters:
+
+* autoplay
+* forcehd
+* showinfo // enables info layers. Disabled by default.
+
+Use them as class names like in this example:
+
+`<a class="embedvideo autoplay forcehd" href="http://www.youtube.com/watch?v=TJHX52TXgm4&t=1m20s">My Title</a>`
+
 == Changelog ==
 
 = 1.0 =
@@ -87,3 +99,7 @@ Added new iframe embedcode for YouTube Videos.
 = 1.8.1 =
 
 Made jslint happy.
+
+= 2.0 =
+
+Added autoplay, forcehd and showinfo
