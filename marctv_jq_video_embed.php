@@ -1,10 +1,9 @@
 <?php
-
 /*
   Plugin Name: MarcTV jQuery Video Embed
   Plugin URI: http://www.marctv.de/blog/2010/08/25/marctv-wordpress-plugins/
   Description: Embed youtube, vimeo and google videos by just adding a css class to a link which points to the url of a video page.
-  Version: 2.0
+  Version: 2.1
   Author: Marc Tönsing
   Author URI: http://www.marctv.de
   License: GPL2

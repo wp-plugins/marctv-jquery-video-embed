@@ -2,8 +2,8 @@
 Contributors: MarcDK
 Tags: marctv, jquery, video, youtube, embed, ipad, iphone, vimeo, google video
 Requires at least: 3.0
-Tested up to: 3.0
-Stable tag: 2.0
+Tested up to: 3.2
+Stable tag: 2.1
 
 == Description ==
 
@@ -46,11 +46,13 @@ It is also possible to link to a specific start time for youtube videos. This sc
 
 to the appropriate time format and starts the video at that position.
 
+= autoplay, forcehd and showinfo =
+
 Version 2.0 introduces three new parameters:
 
 * autoplay
 * forcehd
-* showinfo
+* showinfo // enables info layers. Disabled by default.
 
 Use them as class names like in this example:
 
@@ -100,4 +102,4 @@ Made jslint happy.
 
 = 2.0 =
 
-Added autoplay and forcehd
+Added autoplay, forcehd and showinfo

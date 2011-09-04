@@ -4,7 +4,7 @@
 *
 * depends on toolbox.flashembed 
 *
-* Version 2.0
+* Version 2.1
 */
   $.fn.embedvideo = function (options) {
     options = $.extend({
