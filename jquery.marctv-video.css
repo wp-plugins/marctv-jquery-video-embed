@@ -1,0 +1,49 @@
+.jqvideo .sprite{
+  background: url(icons.png) no-repeat;
+}
+
+.jqvideo{
+  padding:0;
+  margin: 0;
+}
+
+.jqvideo .crop {
+  margin:0;
+  overflow:hidden;
+  padding:0;
+  position:relative;
+}
+
+.jqvideo .crop .layer{
+  display: block;
+  position: absolute;
+}
+
+.jqvideo .playicon {
+  opacity: 1;
+  transition: none;
+  -moz-transition: none;
+  -webkit-transition: none;
+  background-position: 0 0;
+  height: 85px;
+  position: absolute;
+  width: 100px;
+}
+.jqvideo .crop{
+  cursor: pointer;
+} 
+
+.jqvideo:hover .playicon {
+  background-position: 0 -88px;
+}
+
+.jqvideo .videotype {
+  position: absolute;
+  height: 30px;
+  text-shadow: 1px 1px 1px #000000;
+  width: 127px;
+  padding-left: 0.4em;
+  color: #eee;
+  font: 300 90%/1.625 "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+

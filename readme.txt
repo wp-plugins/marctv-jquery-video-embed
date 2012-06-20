@@ -1,19 +1,20 @@
-=== MarcTV jQuery Video Embed ===
+=== MarcTV Video Embed ===
 Contributors: MarcDK
-Tags: marctv, jquery, video, youtube, embed, ipad, iphone, vimeo, google video
+Tags: marctv, youtube, vimeo, jquery, google analytics, responsive
 Requires at least: 3.0
-Tested up to: 3.0
-Stable tag: 1.8.1
+Tested up to: 3.3
+Stable tag: 2.5
 
 == Description ==
 
-Embed youtube, vimeo and google videos by just adding a css class to a link which points to the url of a video page. Supports iPad/iPhone-safe embedding for YouTube. 
+Loads an image with play icon instead of an embed code which is only embedded after the image has been clicked. Saves loading time and bandwidth. And it has build in google analytic tracking events and is responsive, too!
 
 `<a class="embedvideo" href="http://www.youtube.com/watch?v=TJHX52TXgm4">My Title</a>`
 
 Degrades gracefully. The biggest advantage of this plugin is that it does not alter your original markup in any way. If you (or youtube) decides that flash is not the best way to embed video you won't be stuck with embed codes in your article. I will update this plugin to keep track with this development. And if you decide to use another plugin because this plugin does not suit your requirements then you can still switch because you did just add classes to html tags. So if everything breaks you still have working links to video ressources in your content.
 
 Feel free to contact me if you have any questions. Please use the wordpress forums and name a tag of your post after the plugin's name. Thank you.
+
 
 == Installation ==
 
@@ -27,16 +28,7 @@ Feel free to contact me if you have any questions. Please use the wordpress foru
 
 = player size =
 
-You can add my predefined classes to use predefined dimensions for the size of the player:
-
-* big
-* soundonly
-* wide
-* normal
-
-`<a class="embedvideo soundonly" href="http://www.youtube.com/watch?v=TJHX52TXgm4">My Title</a>`
-
-Look all of them up in jquery.marctv-video.css and feel free to overwrite this rules with your own rules in your template's style.css.
+Both the preview image and the embedded player iframe are automatically resized.
 
 = specify a start time =
 
@@ -44,46 +36,80 @@ It is also possible to link to a specific start time for youtube videos. This sc
 
 `<a class="embedvideo" href="http://www.youtube.com/watch?v=TJHX52TXgm4&t=1m20s">My Title</a>`
 
-to the appropriate time format and starts the video at that position.
+to the appropriate time format and starts the video at that position.  
+
+= Google Analytics =
+
+Events are being tracked automatically as "vimeo" and "youtube" with the video title as label.  
+
+= Credits = 
+
+Player icon by Font Awesome: http://fortawesome.github.com/Font-Awesome/#icon/icon-play-circle
 
 == Changelog ==
 
-= 1.0 =
+= 2.5 =
 
-First version.
+* completely rewritten from scratch
+* image based embedding. No Flash, No HTML5. 
+* players are embedded after user interaction
+* dropped google video support (sorry)
+* responsive size (reacts to dynamic measures)
+* google analytics tracking events 
 
-= 1.1. =
+= 2.0 =
 
-Fixed folder names
+Added autoplay, forcehd and showinfo
 
-= 1.2 =
+= 1.8.1 =
 
-Fixed filenames
-
-= 1.4 =
-
-New description and more examples.
-
-= 1.6 =
-
-Forgot to add a bunch of files.
-
-= 1.6.2 =
-
-Added .wp-caption class to style video embed like images.
-
-= 1.6.4 =
-
-Added start time feature
-
-= 1.7 =
-
-Changed class name to "embedvideo".
+Made jslint happy.
 
 = 1.8 =
 
 Added new iframe embedcode for YouTube Videos.
 
-= 1.8.1 =
+= 1.7 =
 
-Made jslint happy.
+Changed class name to "embedvideo".
+
+= 1.6.4 =
+
+Added start time feature for youtube
+
+= 1.6.2 =
+
+Added .wp-caption class to style video embed like images.
+
+= 1.6 =
+
+Forgot to add a bunch of files.
+
+= 1.4 =
+
+New description and more examples.
+
+= 1.2 =
+
+Fixed filenames
+
+= 1.1. =
+
+Fixed folder names
+
+= 1.0 =
+
+First version.
+
+
+
+
+
+
+
+
+
+
+
+
+
