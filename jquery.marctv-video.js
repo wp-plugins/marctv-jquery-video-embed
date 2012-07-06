@@ -292,7 +292,7 @@
   };
   
   $(document).ready(function($) {
-    $('a.embedvideo').embedvideo();
+    $('.embedvideo').embedvideo();
     
     function resizeStuff() {
       $(".jqvideo").setSize();
