@@ -65,7 +65,7 @@ Player icon by Font Awesome: http://fortawesome.github.com/Font-Awesome/#icon/ic
 
 = 2.8 = 
 
-* Changes play button hover behaviour  
+* new play button hover effect  
 
 = 2.6 = 
 
