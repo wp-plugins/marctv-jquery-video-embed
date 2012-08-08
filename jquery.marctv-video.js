@@ -5,7 +5,7 @@
  * Marc Tönsing 2012
  * 
  *
- * Version 2.5
+ * Version 2.8
 */
   $.fn.embedvideo = function (options) {
     options = $.extend({
@@ -14,7 +14,7 @@
       showinfo: false,
       mediatypes: {
         youtube: {
-          label: 'YouTube',
+          label: 'YouTube Video',
           linksyntax: 'youtube.com/watch?',
           thumb_w: 4,
           thumb_h: 3,
@@ -24,7 +24,7 @@
           thumb_asy: false
         },
         vimeo: {
-          label: 'VIMEO',
+          label: 'VIMEO Video',
           linksyntax : 'vimeo.com',
           thumb_w: 16,
           thumb_h: 9,
@@ -121,6 +121,20 @@
           $(".layer",this).fadeTo(100, 0.1);
         }
         );
+          
+      $(".playicon",jqplayer).hover(
+        function () {
+          $(this).css({
+            backgroundPosition: '0 -88px'
+          });
+        }, 
+        function () {
+          $(this).css({
+            backgroundPosition: '0 0'
+          });
+        }
+        );
+          
     };
 
     $.fn.setSize = function (){

@@ -33,16 +33,13 @@
   cursor: pointer;
 } 
 
-.jqvideo:hover .playicon {
-  background-position: 0 -88px;
-}
 
 .jqvideo .videotype {
   position: absolute;
   height: 30px;
-  width: 127px;
+  width: 10em;
   padding-left: 0.4em;
   color: #eee;
-  font: 300 90%/1.625 "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font: 700 90%/1.625 "Helvetica Neue",Helvetica,Arial,sans-serif;
+  text-shadow: 0 0 4px #000000;
 }
-
