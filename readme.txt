@@ -3,7 +3,7 @@ Contributors: MarcDK
 Tags: marctv, youtube, vimeo, jquery, google analytics, responsive, oembed
 Requires at least: 3.0
 Tested up to: 3.4.1
-Stable tag: 2.8
+Stable tag: 2.93
 
 == Description ==
 
@@ -63,9 +63,21 @@ Player icon by Font Awesome: http://fortawesome.github.com/Font-Awesome/#icon/ic
 
 == Changelog ==
 
+= 2.93 = 
+
+* fixed moving buttons while resizing
+
+= 2.92 = 
+
+* corrected wrong hover image
+
+= 2.9 = 
+
+* Nice and smooth hover effect
+
 = 2.8 = 
 
-* new play button hover effect  
+* Changes play button hover behavior  
 
 = 2.6 = 
 

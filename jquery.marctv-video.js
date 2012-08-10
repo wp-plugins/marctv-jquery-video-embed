@@ -64,7 +64,7 @@
       
       vidobj = $('<iframe src="' + iframeurl + mediaID + '?autoplay=1&rel=0' + showinfo + offset + hd + '" frameborder="0" scrolling="no" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>');
       
-      vidimg = $('<div class="crop"><span class="layer"> </span><span class="sprite playicon"> </span><span class="videotype">' + label + '</span><div class="img"></div>');
+      vidimg = $('<div class="crop"><span class="layer"> </span><span class="playicon_area"></span> <span class="sprite playicon_hover"> </span> <span class="sprite playicon"> </span><span class="videotype">' + label + '</span><div class="img"></div>');
       
       
 
@@ -74,7 +74,7 @@
       var caption_markup = $(options.description_html).html('<a href="' + this.attr('href') + '">' + title + '</a>');
       
       this.wrap('<div class="jqvideo" />').after(caption_markup).after(vidimg).hide();
-          
+   
       var jqplayer = $(this).parent('.jqvideo');
       
       if(options.mediatypes[mediatype].thumb_asy){
@@ -109,32 +109,32 @@
           "height": img_height
         });
        
-        var title = $("a.embedvideo",jqplayer).html();       
+        var title = $("a.embedvideo",jqplayer).html();    
+        
         trackVideo(mediaID,mediatype,title);
       });
-        
+       
       $(".crop",jqplayer).hover(
         function () {
-          $(".layer",this).fadeTo(100, 0);
+          $(".layer",this).fadeTo("fast", 0.1);
         }, 
         function () {
-          $(".layer",this).fadeTo(100, 0.1);
+          $(".layer",this).fadeTo("fast", 0.2);
         }
         );
           
-      $(".playicon",jqplayer).hover(
-        function () {
-          $(this).css({
-            backgroundPosition: '0 -88px'
-          });
-        }, 
-        function () {
-          $(this).css({
-            backgroundPosition: '0 0'
-          });
-        }
-        );
+               
           
+      $(".playicon_area",jqplayer).hover(
+          function () {
+            $(".playicon_hover",jqplayer).fadeOut("fast");
+             $(".layer",jqplayer).fadeTo("fast", 0);
+          }, 
+          function () {
+             $(".playicon_hover",jqplayer).fadeIn("fast");
+              $(".layer",jqplayer).fadeTo("fast", 0.1);
+          }
+        );  
     };
 
     $.fn.setSize = function (){
@@ -160,13 +160,13 @@
         
         var playbt_left   = (img_width/2)-($(".playicon",this).width()/2);
         var playbt_top    = (img_height_wide/2)-($(".playicon",this).height()/2);
-        
 
-        $(".playicon",this).css({
+      
+        $(this).children(".crop").children(".playicon,.playicon_hover,.playicon_area").css({
           'left': playbt_left, 
           'top' : playbt_top
         });
-      
+
         $("img",this).css({
           'width': img_width ,
           'height' : img_height_input, 
@@ -181,7 +181,7 @@
           'width': img_width ,
           'height' : img_height_wide, 
           'background': '#000'
-        }).fadeTo(0,0.1);
+        }).fadeTo("fast",0.2);
       
         $("iframe",this).css({
           'width': img_width ,
