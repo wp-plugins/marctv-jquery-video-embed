@@ -161,23 +161,12 @@
         var playbt_left   = (img_width/2)-($(".playicon",this).width()/2);
         var playbt_top    = (img_height_wide/2)-($(".playicon",this).height()/2);
 
-        
-
-        $(".playicon",this).css({
-          'left': playbt_left, 
-          'top' : playbt_top
-        });
-        
-        $(".playicon_hover",this).css({
-          'left': playbt_left, 
-          'top' : playbt_top
-        });
-        
-        $(".playicon_area",this).css({
-          'left': playbt_left, 
-          'top' : playbt_top
-        });
       
+        $(this).children(".crop").children(".playicon,.playicon_hover,.playicon_area").css({
+          'left': playbt_left, 
+          'top' : playbt_top
+        });
+
         $("img",this).css({
           'width': img_width ,
           'height' : img_height_input, 

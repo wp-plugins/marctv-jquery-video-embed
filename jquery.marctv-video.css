@@ -28,12 +28,18 @@
   width: 100px;
 }
 
+.jqvideo .playicon{
+  transition-property: none;
+  -webkit-transition-property: none;
+  -moz-transition-property: none;
+  -o-transition-property: none;
+}
 .jqvideo .playicon_hover{
-   background-position: 0 -88px;  
+  background-position: 0 -88px;  
 }
 
 .jqvideo .playicon{
-   background-position: 0 0; 
+  background-position: 0 0; 
 }
 
 .jqvideo .playicon_area{
