@@ -19,20 +19,38 @@
   position: absolute;
 }
 
-.jqvideo .playicon {
+.jqvideo .playicon,
+.jqvideo .playicon_hover,
+.jqvideo .playicon_area{
   opacity: 1;
-  transition: none;
-  -moz-transition: none;
-  -webkit-transition: none;
-  background-position: 0 0;
   height: 85px;
   position: absolute;
   width: 100px;
 }
+
+.jqvideo .playicon_hover{
+   background-position: 0 -88px;  
+}
+
+.jqvideo .playicon{
+   background-position: 0 0; 
+}
+
+.jqvideo .playicon_area{
+  z-index: 1000;
+}
+
+.jqvideo .playicon_hover{
+  z-index: 999;
+}
+
+.jqvideo .playicon{
+  z-index: 998;
+}
+
 .jqvideo .crop{
   cursor: pointer;
 } 
-
 
 .jqvideo .videotype {
   position: absolute;
