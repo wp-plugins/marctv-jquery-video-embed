@@ -3,7 +3,7 @@ Contributors: MarcDK
 Tags: marctv, youtube, vimeo, jquery, google analytics, responsive, oembed
 Requires at least: 3.0
 Tested up to: 3.4.1
-Stable tag: 2.93
+Stable tag: 2.94
 
 == Description ==
 
@@ -62,6 +62,10 @@ Events are being tracked automatically as "vimeo" and "youtube" with the video t
 Player icon by Font Awesome: http://fortawesome.github.com/Font-Awesome/#icon/icon-play-circle
 
 == Changelog ==
+
+= 2.94 = 
+
+* The videotitle is now visible in the upper left corner of the video player
 
 = 2.93 = 
 

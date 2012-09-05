@@ -14,7 +14,7 @@
       showinfo: false,
       mediatypes: {
         youtube: {
-          label: 'YouTube Video',
+          label: 'YouTube',
           linksyntax: 'youtube.com/watch?',
           thumb_w: 4,
           thumb_h: 3,
@@ -24,7 +24,7 @@
           thumb_asy: false
         },
         vimeo: {
-          label: 'VIMEO Video',
+          label: 'VIMEO',
           linksyntax : 'vimeo.com',
           thumb_w: 16,
           thumb_h: 9,
@@ -65,11 +65,12 @@
       vidobj = $('<iframe src="' + iframeurl + mediaID + '?autoplay=1&rel=0' + showinfo + offset + hd + '" frameborder="0" scrolling="no" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>');
       
       vidimg = $('<div class="crop"><span class="layer"> </span><span class="playicon_area"></span> <span class="sprite playicon_hover"> </span> <span class="sprite playicon"> </span><span class="videotype">' + label + '</span><div class="img"></div>');
-      
-      
-
 
       var title = this.html();
+      
+      if(title){
+        $(vidimg).find('.videotype').html(label + ' - ' + title);
+      }
       
       var caption_markup = $(options.description_html).html('<a href="' + this.attr('href') + '">' + title + '</a>');
       
