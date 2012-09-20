@@ -2,8 +2,8 @@
 Contributors: MarcDK
 Tags: marctv, youtube, vimeo, jquery, google analytics, responsive, oembed
 Requires at least: 3.0
-Tested up to: 3.4.1
-Stable tag: 2.94
+Tested up to: 3.4.2
+Stable tag: 2.95
 
 == Description ==
 
@@ -63,9 +63,14 @@ Player icon by Font Awesome: http://fortawesome.github.com/Font-Awesome/#icon/ic
 
 == Changelog ==
 
+
+= 2.95 = 
+
+* SVG play button for Retina Displays (and any browser that supports SVG 1.1)
+
 = 2.94 = 
 
-* The videotitle is now visible in the upper left corner of the video player
+* The video title is now visible in the upper left corner of the video player
 
 = 2.93 = 
 

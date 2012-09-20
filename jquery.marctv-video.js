@@ -127,14 +127,14 @@
                
           
       $(".playicon_area",jqplayer).hover(
-          function () {
-            $(".playicon_hover",jqplayer).fadeOut("fast");
-             $(".layer",jqplayer).fadeTo("fast", 0);
-          }, 
-          function () {
-             $(".playicon_hover",jqplayer).fadeIn("fast");
-              $(".layer",jqplayer).fadeTo("fast", 0.1);
-          }
+        function () {
+          $(".playicon_hover",jqplayer).fadeOut("fast");
+          $(".layer",jqplayer).fadeTo("fast", 0);
+        }, 
+        function () {
+          $(".playicon_hover",jqplayer).fadeIn("fast");
+          $(".layer",jqplayer).fadeTo("fast", 0.1);
+        }
         );  
     };
 
@@ -307,6 +307,12 @@
   };
   
   $(document).ready(function($) {
+    
+    // detect svg and add body class
+    if (document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Shape", "1.1")) { 
+      $("body").addClass("svg");
+    }    
+    
     $('.embedvideo').embedvideo();
     
     function resizeStuff() {

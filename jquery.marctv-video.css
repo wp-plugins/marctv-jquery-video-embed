@@ -1,5 +1,9 @@
 .jqvideo .sprite{
-  background: url(icons.png) no-repeat;
+  background-image: url(icons.png);
+}
+
+.svg .jqvideo .sprite{
+  background-image: url(icons.svg);
 }
 
 .jqvideo{
