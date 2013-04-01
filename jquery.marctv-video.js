@@ -5,7 +5,7 @@
    * Marc Tönsing 2012
    * 
    *
-   * Version 3.0
+   * Version 3.1
    */
   $.fn.embedvideo = function (options) {
     options = $.extend({
@@ -94,7 +94,7 @@
           break;
         case "youtube":
           $(".img",vidimg).replaceWith('<img src="http://img.youtube.com/vi/' + mediaID + '/hqdefault.jpg">');
-
+          $(jqplayer).setSize();
           var img = new Image();
          
           img.onload = function() {
