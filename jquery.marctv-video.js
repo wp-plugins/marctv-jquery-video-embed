@@ -1,12 +1,12 @@
 (function($) {
   /*
- * MarcTV Video Embed
- *
- * Marc Tönsing 2012
- * 
- *
- * Version 2.8
-*/
+   * MarcTV Video Embed
+   *
+   * Marc Tönsing 2012
+   * 
+   *
+   * Version 3.1
+   */
   $.fn.embedvideo = function (options) {
     options = $.extend({
       description_html: '<p class="wp-caption-text"></p>',
@@ -65,7 +65,9 @@
       vidobj = $('<iframe src="' + iframeurl + mediaID + '?autoplay=1&rel=0' + showinfo + offset + hd + '" frameborder="0" scrolling="no" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>');
       
       vidimg = $('<div class="crop"><span class="layer"> </span><span class="playicon_area"></span> <span class="sprite playicon_hover"> </span> <span class="sprite playicon"> </span><span class="videotype">' + label + '</span><div class="img"></div>');
-
+      
+     
+    
       var title = this.html();
       
       if(title){
@@ -76,30 +78,46 @@
       
       this.wrap('<div class="jqvideo" />').after(caption_markup).after(vidimg).hide();
    
-      var jqplayer = $(this).parent('.jqvideo');
-      
-      if(options.mediatypes[mediatype].thumb_asy){
-        $.ajax({
-          url: 'http://vimeo.com/api/v2/video/' + mediaID + '.json',
-          dataType: 'jsonp',
-          success: function(data) {
-            $("a.embedvideo",jqplayer).html(data[0].title);
-            $(".img",vidimg).replaceWith('<img src="' + data[0].thumbnail_large + '">');
-            $(jqplayer).setSize();  
+      var jqplayer = $(this).parent('.jqvideo');      
+     
+      switch(mediatype){
+        case "vimeo":
+          $.ajax({
+            url: 'http://vimeo.com/api/v2/video/' + mediaID + '.json',
+            dataType: 'jsonp',
+            success: function(data) {
+              $("a.embedvideo",jqplayer).html(data[0].title);
+              $(".img",vidimg).replaceWith('<img src="' + data[0].thumbnail_large + '">');
+              $(jqplayer).setSize();  
+            }
+          });
+          break;
+        case "youtube":
+          $(".img",vidimg).replaceWith('<img src="http://img.youtube.com/vi/' + mediaID + '/hqdefault.jpg">');
+          $(jqplayer).setSize();
+          var img = new Image();
+         
+          img.onload = function() {
+            if(this.width > 300){
+              $("img",vidimg).attr('src',this.src);
+            }
+            $(jqplayer).setSize();
           }
-        });
-      } else{
-        $(".img",vidimg).replaceWith('<img src="http://img.youtube.com/vi/' + mediaID + '/hqdefault.jpg">');
-        $(jqplayer).setSize();
+          img.src = 'http://i2.ytimg.com/vi/' + mediaID + '/maxresdefault.jpg';
+          
+          break;
+        default:
+          
       }
 
-        
       $(".crop",jqplayer).click(function() {
         var img_width = 0;
         img_width = $("img",this).width();
         if(img_width < 1){
           img_width = $(".img",this).width();
         }
+        
+   
         
         var img_height = aspectHeight(img_width,16,9);
         
@@ -138,7 +156,7 @@
         );  
     };
 
-    $.fn.setSize = function (){
+    $.fn.setSize = function (ar){
       this.each(function () {
         var media = parseVideoURL($("a",this).attr('href'));
         
@@ -147,6 +165,12 @@
         
         var thumb_w = options.mediatypes[media.provider].thumb_w;
         var thumb_h = options.mediatypes[media.provider].thumb_h;
+      
+        // check if HD thumb is loaded.
+        if($("img",this).attr("src").indexOf("maxres") !== -1){
+          thumb_w = 16;
+          thumb_h = 9;
+        }
       
         var img_width         = $(this).parent().innerWidth();
         var img_height_wide   = aspectHeight(img_width,16,9);
@@ -200,27 +224,35 @@
 
     var trackVideo = function (mediaID,mediatype,title){
       if(window._gat && window._gat._getTracker){
-        if(options.mediatypes[mediatype].thumb_asy){
-          _gaq.push(['_trackEvent', 'vimeo', 'play', title ]);
-        }else{
-          $.ajax({
-            type: "GET",
-            url: "http://gdata.youtube.com/feeds/api/videos/" + mediaID + "?v=2&alt=json-in-script",
-            dataType:'jsonp',
-            cache : true,
-            success: function(data){
-              var videotitle = data.entry.title['$t'];
-              _gaq.push(['_trackEvent', 'youtube', 'play', videotitle ]);
+        switch(mediatype){
+          
+          case "vimeo":
+            _gaq.push(['_trackEvent', 'vimeo', 'play', title ]);
+            break;
+            
+          case "youtube":
+            $.ajax({
+              type: "GET",
+              url: "http://gdata.youtube.com/feeds/api/videos/" + mediaID + "?v=2&alt=json-in-script",
+              dataType:'jsonp',
+              cache : true,
+              success: function(data){
+                var videotitle = data.entry.title['$t'];
+                _gaq.push(['_trackEvent', 'youtube', 'play', videotitle ]);
              
-              try{
-                var errorcode = data.entry['app$control']['yt$state'].reasonCode;
-                _gaq.push(['_trackEvent', 'youtube', 'error', errorcode + ' - ' + videotitle ]);
+                try{
+                  var errorcode = data.entry['app$control']['yt$state'].reasonCode;
+                  _gaq.push(['_trackEvent', 'youtube', 'error', errorcode + ' - ' + videotitle ]);
                
-              }catch(err){
-     
+                }catch(err){
+                
+                }
               }
-            }
-          });
+            });
+            break;
+            
+          default:
+            return false;
         }
       }
     };
