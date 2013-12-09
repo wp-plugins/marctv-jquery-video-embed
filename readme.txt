@@ -1,9 +1,9 @@
 === MarcTV Video Embed ===
 Contributors: MarcDK
-Tags: marctv, youtube, vimeo, jquery, google analytics, responsive, oembed
+Tags: marctv, youtube, vimeo, jquery, google analytics, responsive, oembed, responsive design, tracking
 Requires at least: 3.0
-Tested up to: 3.4.2
-Stable tag: 2.95
+Tested up to: 3.7.1
+Stable tag: 3.2
 
 == Description ==
 
@@ -63,6 +63,13 @@ Player icon by Font Awesome: http://fortawesome.github.com/Font-Awesome/#icon/ic
 
 == Changelog ==
 
+= 3.2 =
+
+Added "forcehd" class to force 720p playback. Works only with flash player. 
+
+= 3.0 = 
+
+* Loads hd maxres image if available
 
 = 2.95 = 
 
