@@ -39,11 +39,11 @@
   -o-transition-property: none;
 }
 .jqvideo .playicon_hover{
-  background-position: 0 -88px;  
+  background-position: 0 -88px;
 }
 
 .jqvideo .playicon{
-  background-position: 0 0; 
+  background-position: 0 0;
 }
 
 .jqvideo .playicon_area{
@@ -60,7 +60,7 @@
 
 .jqvideo .crop{
   cursor: pointer;
-} 
+}
 
 .jqvideo .videotype {
   position: absolute;
