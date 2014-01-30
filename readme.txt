@@ -2,8 +2,8 @@
 Contributors: MarcDK
 Tags: marctv, youtube, vimeo, jquery, google analytics, responsive, oembed, responsive design, tracking
 Requires at least: 3.0
-Tested up to: 3.7.1
-Stable tag: 3.2
+Tested up to: 3.8.1
+Stable tag: 3.3
 
 == Description ==
 
@@ -62,6 +62,10 @@ Events are being tracked automatically as "vimeo" and "youtube" with the video t
 Player icon by Font Awesome: http://fortawesome.github.com/Font-Awesome/#icon/icon-play-circle
 
 == Changelog ==
+
+= 3.3 =
+
+Removed deprecated calls (Incorrect Use of wp_enqueue_style()). Kudos to flexfoxx
 
 = 3.2 =
 
