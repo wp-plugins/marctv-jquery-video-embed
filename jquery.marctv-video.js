@@ -7,7 +7,6 @@
    *
    * Version 3.3
    */
-  
   $.fn.embedvideo = function( options ) {
     options = $.extend({
       description_html: '<p class="wp-caption-text"></p>',
@@ -83,6 +82,7 @@
 
       switch (mediatype) {
         case "vimeo":
+ 
           $.ajax({
             url: 'http://vimeo.com/api/v2/video/' + mediaID + '.json',
             dataType: 'jsonp',
@@ -318,11 +318,12 @@
 
       var retVal = {};
       var matches;
-
+      
       if (url.indexOf("youtube.com/watch") !== -1) {
         retVal.provider = "youtube";
         retVal.id = getParm(url, "v");
-      } else if (matches === url.match(/vimeo.com\/(\d+)/)) {
+      } else {
+        matches = url.match(/vimeo.com\/(\d+)/); 
         retVal.provider = "vimeo";
         retVal.id = matches[1];
       }
@@ -331,6 +332,7 @@
 
 
     return this.each(function() {
+               
       getOptions($(this).attr('class').split(' '));
       var link = $(this).attr('href');
       var media = parseVideoURL(link);

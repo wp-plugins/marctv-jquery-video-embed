@@ -4,7 +4,7 @@
   Plugin Name: MarcTV Video Embed
   Plugin URI: http://www.marctv.de/blog/2010/08/25/marctv-wordpress-plugins/
   Description: Loads an image with play icon instead of an embed code which is only embedded after the image has been clicked. Saves loading time and bandwidth. And it has build in google analytic tracking events and is responsive, too!
-  Version: 3.3
+  Version: 3.4
   Author: Marc Tönsing
   Author URI: http://www.marctv.de
   License: GPL2
