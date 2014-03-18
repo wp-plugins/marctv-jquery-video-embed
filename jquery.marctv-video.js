@@ -5,9 +5,9 @@
    * Marc Tönsing 2012
    * 
    *
-   * Version 3.1
+   * Version 3.3
    */
-  $.fn.embedvideo = function(options) {
+  $.fn.embedvideo = function( options ) {
     options = $.extend({
       description_html: '<p class="wp-caption-text"></p>',
       forcehd: false,
@@ -37,7 +37,7 @@
     }, options);
 
 
-    $.fn.buildPlayer = function(mediaID, time, mediatype) {
+    $.fn.buildPlayer = function( mediaID, time, mediatype ) {
 
       var vidobj = '';
       var vidimg = '';
@@ -82,6 +82,7 @@
 
       switch (mediatype) {
         case "vimeo":
+ 
           $.ajax({
             url: 'http://vimeo.com/api/v2/video/' + mediaID + '.json',
             dataType: 'jsonp',
@@ -102,12 +103,11 @@
               $("img", vidimg).attr('src', this.src);
             }
             $(jqplayer).setSize();
-          }
+          };
           img.src = 'http://i2.ytimg.com/vi/' + mediaID + '/maxresdefault.jpg';
 
           break;
         default:
-
       }
 
       $(".crop", jqplayer).click(function() {
@@ -181,8 +181,8 @@
         var img_height_input = aspectHeight(img_width, thumb_w, thumb_h);
 
         // calculated 4:3 height - 16:9 height + 20% (black bar)
-        if (options.mediatypes[media.provider].thumb_w == 4) {
-          marginbottom = ((((img_height_input - img_height_wide) / 2)) * -1)
+        if (options.mediatypes[media.provider].thumb_w === 4) {
+          marginbottom = ((((img_height_input - img_height_wide) / 2)) * -1);
           marginbottom = marginbottom - 10;
           margintop = marginbottom;
         }
@@ -291,18 +291,18 @@
     var aspectHeight = function(width, aspect_w, aspect_h) {
       var height = width / aspect_w * aspect_h;
       return height;
-    }
+    };
 
     var getOptions = function(myClasses) {
       for (var i = 0; i < myClasses.length; i++) {
-        if (myClasses[i] == "forcehd") {
+        if (myClasses[i] === "forcehd") {
           options.forcehd = true;
         }
-        if (myClasses[i] == "showinfo") {
+        if (myClasses[i] === "showinfo") {
           options.showinfo = true;
         }
       }
-    }
+    };
 
     function parseVideoURL(url) {
 
@@ -318,11 +318,12 @@
 
       var retVal = {};
       var matches;
-
-      if (url.indexOf("youtube.com/watch") != -1) {
+      
+      if (url.indexOf("youtube.com/watch") !== -1) {
         retVal.provider = "youtube";
         retVal.id = getParm(url, "v");
-      } else if (matches = url.match(/vimeo.com\/(\d+)/)) {
+      } else {
+        matches = url.match(/vimeo.com\/(\d+)/); 
         retVal.provider = "vimeo";
         retVal.id = matches[1];
       }
@@ -331,6 +332,7 @@
 
 
     return this.each(function() {
+               
       getOptions($(this).attr('class').split(' '));
       var link = $(this).attr('href');
       var media = parseVideoURL(link);
