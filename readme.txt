@@ -63,6 +63,10 @@ Player icon by Font Awesome: http://fortawesome.github.com/Font-Awesome/#icon/ic
 
 == Changelog ==
 
+= 3.5 =
+
+Fixed php notice for WP 4.0. New icons and logo. 
+
 = 3.4 =
 
 Fixed vimeo embedding. 
