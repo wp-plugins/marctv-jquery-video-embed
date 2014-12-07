@@ -5,7 +5,7 @@
    * Marc Tönsing 2012
    * 
    *
-   * Version 3.3
+   * Version 3.5.1
    */
   $.fn.embedvideo = function( options ) {
     options = $.extend({
