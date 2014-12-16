@@ -2,7 +2,7 @@
 Contributors: MarcDK
 Tags: marctv, youtube, vimeo, jquery, google analytics, responsive, oembed, responsive design, tracking
 Requires at least: 3.0
-Tested up to: 4.0
+Tested up to: 4.1
 Stable tag: 3.5.1
 
 == Description ==
