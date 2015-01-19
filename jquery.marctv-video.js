@@ -176,7 +176,7 @@
           thumb_h = 9;
         }
 
-        var img_width = $(this).parent().innerWidth();
+        var img_width = $(this).parent().width();
         var img_height_wide = aspectHeight(img_width, 16, 9);
         var img_height_input = aspectHeight(img_width, thumb_w, thumb_h);
 
