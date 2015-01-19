@@ -13,10 +13,10 @@
 function add_marctv_video_scripts()
 {
     wp_enqueue_style(
-        "jquery.marctv_video", WP_PLUGIN_URL . "/marctv-jquery-video-embed/jquery.marctv-video.css", false, "3.5.1");
+        "jquery.marctv_video", WP_PLUGIN_URL . "/marctv-jquery-video-embed/jquery.marctv-video.css", false, "3.6");
 
     wp_enqueue_script(
-        "jquery.marctv_video", WP_PLUGIN_URL . "/marctv-jquery-video-embed/jquery.marctv-video.js", array("jquery"), "3.5.1", true);
+        "jquery.marctv_video", WP_PLUGIN_URL . "/marctv-jquery-video-embed/jquery.marctv-video.js", array("jquery"), "3.6", true);
 }
 
 function change_video_link($html, $url, $attr)
