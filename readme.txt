@@ -3,7 +3,7 @@ Contributors: MarcDK
 Tags: marctv, youtube, vimeo, jquery, google analytics, responsive, oembed, responsive design, tracking
 Requires at least: 3.0
 Tested up to: 4.1
-Stable tag: 3.5.1
+Stable tag: 3.6.1
 
 == Description ==
 
@@ -62,6 +62,16 @@ Events are being tracked automatically as "vimeo" and "youtube" with the video t
 Player icon by Font Awesome: http://fortawesome.github.com/Font-Awesome/#icon/icon-play-circle
 
 == Changelog ==
+
+= 3.6.1 =
+
+* better play button position on mobile.
+
+= 3.6 =
+
+* better calculation for player width.
+* compatible with TwentyFifteen Theme.
+* more compatible retina screen optimized sprites.
 
 = 3.5.1 =
 
